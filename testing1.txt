@@ -1,1 +1,58 @@
-dhhddh
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <h1>Simple Form Validation</h1>
+    <form id="myForm">
+        <!-- Name Field -->
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" placeholder="Enter your name"><br><br>
+
+        <!-- Email Field -->
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" placeholder="Enter your email"><br><br>
+
+        <!-- Password Field -->
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" placeholder="Enter your password"><br><br>
+
+        <!-- Error Message Area -->
+        <div id="error" style="color: red;"></div><br>
+
+        <!-- Submit Button -->
+        <button type="button" onclick="validateForm()">Submit</button>
+    </form>
+
+    <script>
+        // JavaScript Form Validation
+        function validateForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorDiv = document.getElementById('error');
+
+            // Clear previous error message
+            errorDiv.innerHTML = '';
+
+            // Check if all fields are filled
+            if (name === '' || email === '' || password === '') {
+                errorDiv.innerHTML = 'All fields are required!';
+                return; // Stop further validation
+            }
+
+            // Simplified Email Validation
+            if (!email.includes('@') || !email.includes('.')) {
+                errorDiv.innerHTML = 'Please enter a valid email address!';
+                return;
+            }
+
+            // If all validations pass
+            alert('Form submitted successfully!');
+        }
+    </script>
+
+</body>
+</html>
